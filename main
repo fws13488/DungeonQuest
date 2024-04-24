@@ -31,7 +31,7 @@ if game.GameId == 848145103 then
     local FarmTab = Window:CreateTab("Farm", 9259420724)
     local AutoFarmToggle = FarmTab:CreateToggle({
      Name = "Toggle Example",
-     CurrentValue = dqExploitSettings,
+     CurrentValue = dqExploitSettings.AutoFarm,
      Flag = "AutoFarm",
      Callback = function(Value)
      
