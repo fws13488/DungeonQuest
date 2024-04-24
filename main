@@ -33,11 +33,16 @@ if game.GameId == 848145103 then
   if game.PlaceId ~= 2414851778 then
     local FarmTab = Window:CreateTab("Farm", 9259420724)
     local AutoFarmToggle = FarmTab:CreateToggle({
-     Name = "Toggle Example",
+     Name = "Auto Farm",
      CurrentValue = dqExploitSettings.AutoFarm,
      Flag = "AutoFarm",
-     Callback = function(Value)
-     
+     Callback = function(value)
+        dqExploitSettings.AutoFarm = value
+        if value == true then
+            while dqExploitSettings.AutoFarm == true do
+              task.wait()
+            end
+        end
      end,
 })
 })
