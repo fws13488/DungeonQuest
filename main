@@ -27,12 +27,11 @@ if game.GameId == 848145103 then
   })
   if game.PlaceId ~= 2414851778 then
     local FarmTab = Window:CreateTab("Farm", 9259420724)
-    local FarmSection1 = Tab:CreateSection("Main")
+    local FarmSection1 = FarmTab:CreateSection("Main")
   else
     local BasicTab = Window:CreateTab("Basic", 9259420724)
     local FarmTab = Window:CreateTab("Farm", 9259420724)
-    local FarmSection = Tab:CreateSection("Main")
-    local FarmLabel = Tab:CreateLabel("You need to at least join a dungeon first!")
+    local FarmLabel = FarmTab:CreateLabel("You need to at least join a dungeon first!")
   end
 else
   game:GetService("Players").LocalPlayer:Kick("Cannot run the exploit due to incorrect game!")
