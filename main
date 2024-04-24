@@ -25,9 +25,19 @@ if game.GameId == 848145103 then
         Key = {"Hello"}
      }
   })
+  dqExploitSettings = dqExploitSettings
+  if dqExploitSettings == nil then dqExploitSettings = {} end
   if game.PlaceId ~= 2414851778 then
     local FarmTab = Window:CreateTab("Farm", 9259420724)
-    local FarmSection1 = FarmTab:CreateSection("Main")
+    local AutoFarmToggle = FarmTab:CreateToggle({
+     Name = "Toggle Example",
+     CurrentValue = dqExploitSettings,
+     Flag = "AutoFarm",
+     Callback = function(Value)
+     
+     end,
+})
+})
   else
     local BasicTab = Window:CreateTab("Basic", 9259420724)
     local FarmTab = Window:CreateTab("Farm", 9259420724)
