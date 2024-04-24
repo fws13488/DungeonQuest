@@ -1,4 +1,4 @@
-if game.Id == 848145103 then
+if game.GameId == 848145103 then
   local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
   local Window = Rayfield:CreateWindow({
      Name = "Dungeon Quest Exploit",
