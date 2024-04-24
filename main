@@ -26,7 +26,10 @@ if game.GameId == 848145103 then
      }
   })
   dqExploitSettings = dqExploitSettings
-  if dqExploitSettings == nil then dqExploitSettings = {} end
+  if dqExploitSettings == nil then
+    dqExploitSettings = {}
+    dqExploitSettings.AutoFarm = false
+  end
   if game.PlaceId ~= 2414851778 then
     local FarmTab = Window:CreateTab("Farm", 9259420724)
     local AutoFarmToggle = FarmTab:CreateToggle({
