@@ -40,6 +40,11 @@ if game.GameId == 848145103 then
         dqExploitSettings.AutoFarm = value
         if value == true then
             while dqExploitSettings.AutoFarm == true do
+              local TweenService = game:GetService("TweenService")
+              local ti = TweenInfo.new(1)
+              local goal = {Position = }
+              local ts = TweenService:Create(game:GetService("Players").LocalPlayer.Character.PrimaryPart, ti, goal)
+              ts:Play()
               task.wait()
             end
         end
