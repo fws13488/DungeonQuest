@@ -52,6 +52,10 @@ if game.GameId == 848145103 then
         if value == true then
           while dqExploitSettings.AutoFarm == true do
             local gotEnemy
+            if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and game:GetService("Players").LocalPlayer.Character.Humanoid.Health > 0 and game:GetService("Workspace").start.Value == true and game:GetService("Players").LocalPlayer.Character:FindFirstChild("plrCharCFrame") then
+              local playerCharacterCFrameValue = Instance.new("CFrameValue", game:GetService("Players").LocalPlayer.Character)
+              playerCharacterCFrameValue.Name = "plrCharCFrame"
+            end
             if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and game:GetService("Players").LocalPlayer.Character.Humanoid.Health > 0 and game:GetService("Workspace").start.Value == true then
               local TweenService = game:GetService("TweenService")
               local ti = TweenInfo.new(1)
