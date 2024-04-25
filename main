@@ -40,7 +40,7 @@ if game.GameId == 848145103 then
         dqExploitSettings.AutoFarm = value
         local function GetEnemy()
             for i, v in ipairs(game:GetService("Workspace").dungeon:GetChildren()) do
-              if v:FindFirstChild("enemyFolder") then
+              if v:FindFirstChild("enemyFolder") and game:GetService("Workspace").start.Value == true then
                 for i2, v2 in ipairs(v.enemyFolder:GetChildren()) do
                   if v2:FindFirstChild("Humanoid") then
                     return v2
