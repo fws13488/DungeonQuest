@@ -38,11 +38,21 @@ if game.GameId == 848145103 then
      Flag = "AutoFarm",
      Callback = function(value)
         dqExploitSettings.AutoFarm = value
+        local function GetEnemy()
+            for i, v in ipairs(game:GetService("Workspace").dungeon:GetChildren()) do
+              for i2, v2 in ipairs(v.enemyFolder:GetChildren()) do
+                if v2:FindFirstChild("Humanoid") then
+                  return v2
+                end
+              end
+            end
+        end
         if value == true then
             while dqExploitSettings.AutoFarm == true do
               local TweenService = game:GetService("TweenService")
               local ti = TweenInfo.new(1)
-              local goal = {Position = }
+              local gotEnemy = GetEnemy()
+              local goal = {Position = gotEnemy.HumanoidRootPart.Position}
               local ts = TweenService:Create(game:GetService("Players").LocalPlayer.Character.PrimaryPart, ti, goal)
               ts:Play()
               task.wait()
