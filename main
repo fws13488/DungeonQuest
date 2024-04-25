@@ -60,7 +60,6 @@ if game.GameId == 848145103 then
         end
      end,
 })
-})
   else
     local BasicTab = Window:CreateTab("Basic", 9259420724)
     local FarmTab = Window:CreateTab("Farm", 9259420724)
