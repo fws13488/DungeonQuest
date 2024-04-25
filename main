@@ -57,8 +57,7 @@ if game.GameId == 848145103 then
               local ti = TweenInfo.new(1)
               if gotEnemy == nil or gotEnemy.Humanoid.Health < 1 then gotEnemy = GetEnemy() end
               local goal = {Position = gotEnemy.HumanoidRootPart.Position}
-              pcall(function() local ts = TweenService:Create(game:GetService("Players").LocalPlayer.Character.PrimaryPart, ti, goal) end)
-              ts:Play()
+              pcall(function() TweenService:Create(game:GetService("Players").LocalPlayer.Character.PrimaryPart, ti, goal):Play() end)
             end
             task.wait()
           end
