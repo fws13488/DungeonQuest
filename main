@@ -65,11 +65,12 @@ if game.GameId == 848145103 then
             end
             if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and game:GetService("Players").LocalPlayer.Character.Humanoid.Health > 0 and game:GetService("Workspace").start.Value == true then
               pcall(function()
+                local cfv = game:GetService("Players").LocalPlayer.Character.plrCharCFrame
                 local TweenService = game:GetService("TweenService")
                 local ti = TweenInfo.new(1)
                 if gotEnemy == nil or gotEnemy.Humanoid.Health < 1 then gotEnemy = GetEnemy() end
                 local goal = {Value = gotEnemy.HumanoidRootPart.CFrame}
-                TweenService:Create(game:GetService("Players").LocalPlayer.Character.plrCharCFrame, ti, goal):Play()
+                TweenService:Create(cfv, ti, goal):Play()
                 if alreadyCFrameFunc == false then
                 cfv.Changed:Connect(function(val)
                     if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and game:GetService("Players").LocalPlayer.Character.Humanoid.Health > 0 and game:GetService("Workspace").start.Value == true then
