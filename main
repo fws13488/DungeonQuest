@@ -88,11 +88,31 @@ if game.GameId == 848145103 then
                 end)
               end)
             end
-            --[[if dqExploitSettings.AutoAbility == true then
+            if dqExploitSettings.AutoAbility == true then
               task.spawn(function()
-                codes here
+                if #game:GetService("Players").LocalPlayer.Backpack:GetChildren() > 0 then
+                  for i, v in ipairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+                    if game:GetService("ReplicatedStorage"):FindFirstChild("dataRemoteEvent") then
+                      local args = {
+                        [1] = {
+                            [1] = {
+                                ["\t"] = game:GetService("Players").LocalPlayer.Backpack.Whirlwind
+                            },
+                            [2] = "'"
+                          }
+                      }
+                      game:GetService("ReplicatedStorage").dataRemoteEvent:FireServer(unpack(args))
+                    else
+                      local args = {
+                        [1] = v.abilitySlot.Value,
+                        [2] = v,
+                      }
+                      game:GetService("ReplicatedStorage").remotes.abilityUsed:FireServer(unpack(args))
+                    end
+                  end
+                end
               end)
-            end]]
+            end
             task.wait()
           end
         end
