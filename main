@@ -96,7 +96,7 @@ if game.GameId == 848145103 then
                       local args = {
                         [1] = {
                             [1] = {
-                                ["\t"] = game:GetService("Players").LocalPlayer.Backpack.Whirlwind
+                                ["\t"] = v
                             },
                             [2] = "'"
                           }
