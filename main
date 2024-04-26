@@ -81,6 +81,16 @@ if game.GameId == 848145103 then
                 end
               end)
             end
+            if dqExploitSettings.AutoSwing == true then
+              task.spawn(function()
+                game:GetService("Players").LocalPlayer.Character:FindFirstChild(game:GetService("Players").LocalPlayer.weaponEquipped.Value).swing:FireServer()
+              end)
+            end
+            --[[if dqExploitSettings.AutoAbility == true then
+              task.spawn(function()
+                
+              end)
+            end]]
             task.wait()
           end
         end
