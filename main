@@ -90,7 +90,7 @@ if game.GameId == 848145103 then
             end
             --[[if dqExploitSettings.AutoAbility == true then
               task.spawn(function()
-                
+                codes here
               end)
             end]]
             task.wait()
