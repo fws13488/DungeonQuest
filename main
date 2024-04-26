@@ -64,15 +64,15 @@ if game.GameId == 848145103 then
               setPlrCharCFrame = true
             end
             if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and game:GetService("Players").LocalPlayer.Character.Humanoid.Health > 0 and game:GetService("Workspace").start.Value == true then
-              local cfv = game:GetService("Players").LocalPlayer.Character.plrCharCFrame
-              local TweenService = game:GetService("TweenService")
-              local ti = TweenInfo.new(1)
-              if gotEnemy == nil or gotEnemy.Humanoid.Health < 1 then gotEnemy = GetEnemy() end
-              local goal = {Value = gotEnemy.HumanoidRootPart.CFrame}
               pcall(function()
+                local cfv = game:GetService("Players").LocalPlayer.Character.plrCharCFrame
+                local TweenService = game:GetService("TweenService")
+                local ti = TweenInfo.new(1)
+                if gotEnemy == nil or gotEnemy.Humanoid.Health < 1 then gotEnemy = GetEnemy() end
+                local goal = {Value = gotEnemy.HumanoidRootPart.CFrame}
                 TweenService:Create(cfv, ti, goal):Play()
                 if alreadyCFrameFunc == false then
-                  cfv.Changed:Connect(function(val)
+                cfv.Changed:Connect(function(val)
                     if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and game:GetService("Players").LocalPlayer.Character.Humanoid.Health > 0 and game:GetService("Workspace").start.Value == true then
                       alreadyCFrameFunc = true
                       game:GetService("Players").LocalPlayer.Character:PivotTo(val)
@@ -83,7 +83,9 @@ if game.GameId == 848145103 then
             end
             if dqExploitSettings.AutoSwing == true then
               task.spawn(function()
-                game:GetService("Players").LocalPlayer.Character:FindFirstChild(game:GetService("Players").LocalPlayer.weaponEquipped.Value).swing:FireServer()
+                pcall(function()
+                  game:GetService("Players").LocalPlayer.Character:FindFirstChild(game:GetService("Players").LocalPlayer.weaponEquipped.Value).swing:FireServer()
+                end)
               end)
             end
             --[[if dqExploitSettings.AutoAbility == true then
