@@ -29,6 +29,8 @@ if game.GameId == 848145103 then
   if dqExploitSettings == nil then
     dqExploitSettings = {}
     dqExploitSettings.AutoFarm = false
+    dqExploitSettings.AutoSwing = false
+    dqExploitSettings.AutoAbility = false
   end
   if game.PlaceId ~= 2414851778 then
     local FarmTab = Window:CreateTab("Farm", 9259420724)
@@ -51,6 +53,7 @@ if game.GameId == 848145103 then
         end
         if value == true then
           local setPlrCharCFrame = false
+          local alreadyCFrameFunc = false
           local gotEnemy
           while dqExploitSettings.AutoFarm == true do
             if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and game:GetService("Players").LocalPlayer.Character.Humanoid.Health > 0 and game:GetService("Workspace").start.Value == true and game:GetService("Players").LocalPlayer.Character:FindFirstChild("plrCharCFrame") and setPlrCharCFrame == false then game:GetService("Players").LocalPlayer.Character.plrCharCFrame.Value = game:GetService("Players").LocalPlayer.Character:GetPivot(); setPlrCharCFrame = true end
@@ -68,16 +71,37 @@ if game.GameId == 848145103 then
               local goal = {Value = gotEnemy.HumanoidRootPart.CFrame}
               pcall(function()
                 TweenService:Create(cfv, ti, goal):Play()
-                cfv.Changed:Connect(function(val)
-                  if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and game:GetService("Players").LocalPlayer.Character.Humanoid.Health > 0 and game:GetService("Workspace").start.Value == true then game:GetService("Players").LocalPlayer.Character:PivotTo(val) end
-                end)
+                if alreadyCFrameFunc == false then
+                  cfv.Changed:Connect(function(val)
+                    if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and game:GetService("Players").LocalPlayer.Character.Humanoid.Health > 0 and game:GetService("Workspace").start.Value == true then
+                      alreadyCFrameFunc = true
+                      game:GetService("Players").LocalPlayer.Character:PivotTo(val)
+                    end
+                  end)
+                end
               end)
             end
             task.wait()
           end
         end
      end,
-})
+    })
+    local AutoSwingToggle = FarmTab:CreateToggle({
+      Name = "Auto Swing (Must Enable Auto Farm)",
+      CurrentValue = dqExploitSettings.AutoSwing,
+      Flag = "AutoSwing",
+      Callback = function(value)
+        dqExploitSettings.AutoSwing = value
+      end,
+    })
+    local AutoAbilityToggle = FarmTab:CreateToggle({
+      Name = "Auto Ability (Must Enable Auto Farm)",
+      CurrentValue = dqExploitSettings.AutoAbility,
+      Flag = "AutoAbility",
+      Callback = function(value)
+        dqExploitSettings.AutoAbility = value
+      end,
+    })
   else
     local BasicTab = Window:CreateTab("Basic", 9259420724)
     local FarmTab = Window:CreateTab("Farm", 9259420724)
