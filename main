@@ -81,14 +81,14 @@ if game.GameId == 848145103 then
                 end
               end)
             end
-            if dqExploitSettings.AutoSwing == true then
+            if dqExploitSettings.AutoSwing == true and gotEnemy ~= nil then
               task.spawn(function()
                 pcall(function()
                   game:GetService("Players").LocalPlayer.Character:FindFirstChild(game:GetService("Players").LocalPlayer.weaponEquipped.Value).swing:FireServer()
                 end)
               end)
             end
-            if dqExploitSettings.AutoAbility == true then
+            if dqExploitSettings.AutoAbility == true and gotEnemy ~= nil then
               task.spawn(function()
                 if #game:GetService("Players").LocalPlayer.Backpack:GetChildren() > 0 then
                   for i, v in ipairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
