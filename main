@@ -72,6 +72,7 @@ if game.GameId == 848145103 then
               playerCharacterCFrameValue.Value = game:GetService("Players").LocalPlayer.Character:GetPivot()
               setPlrCharCFrame = true
             end
+            if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and game:GetService("Players").LocalPlayer.Character.Humanoid.Health > 0 and game:GetService("Workspace").start.Value == true and game:GetService("Players").LocalPlayer.Character:FindFirstChild("plrCharCFrame") == nil and setPlrCharCFrame == true then setPlrCharCFrame = false end
             if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and game:GetService("Players").LocalPlayer.Character.Humanoid.Health > 0 and game:GetService("Workspace").start.Value == true then
               pcall(function()
                 local cfv = game:GetService("Players").LocalPlayer.Character.plrCharCFrame
